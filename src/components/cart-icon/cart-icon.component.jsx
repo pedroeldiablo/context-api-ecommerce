@@ -5,7 +5,7 @@ import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
 
 import './cart-icon.styles.scss';
 
-const CartIcon = ({ itemCount }) => {
+export const CartIcon = ({ itemCount }) => {
   const { toggleHidden, cartItemsCount } = useContext(CartContext);
   
   return (
@@ -14,5 +14,3 @@ const CartIcon = ({ itemCount }) => {
     <span className='item-count'>{cartItemsCount}</span>
   </div>
 )};
-
-export default CartIcon;

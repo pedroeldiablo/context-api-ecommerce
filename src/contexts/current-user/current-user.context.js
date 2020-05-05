@@ -1,5 +1,3 @@
 import { createContext } from 'react';
 
-const CurrentUserContext = createContext(undefined);
-
-export default CurrentUserContext;
+export const CurrentUserContext = createContext(undefined);

@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 
 import MenuItem from '../menu-item/menu-item.component';
 
-import DirectoryContext from '../../contexts/directory/directory.context';
+import { DirectoryContext } from '../../contexts/directory/directory.context';
 
 import './directory.styles.scss';
 
-const Directory = () => {
+export const Directory = () => {
   const sections = useContext(DirectoryContext);
 
   return (
@@ -17,5 +17,3 @@ const Directory = () => {
     </div>
   );
 };
-
-export default Directory;

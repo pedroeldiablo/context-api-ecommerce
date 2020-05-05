@@ -20,7 +20,7 @@ export const CartContext = createContext({
 
 });
 
-const CartProvider = ({children}) => {
+export const CartProvider = ({children}) => {
     const [hidden, setHidden ]= useState(true);
     const [cartItems, setCartItems] =useState([]);
     const [cartItemsCount, setCartItemsCount] =useState(0);
@@ -54,5 +54,3 @@ const CartProvider = ({children}) => {
         }}>{children}</CartContext.Provider>
     )
 }
-
-export default CartProvider;

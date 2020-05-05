@@ -4,7 +4,7 @@ import { CartContext } from '../../providers/cart/cart.provider';
 
 import './checkout-item.styles.scss';
 
-const CheckoutItem = ({ cartItem }) => {
+export const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
   const { addItem , removeItem, clearItemFromCart} = useContext(CartContext);
 
@@ -30,6 +30,3 @@ const CheckoutItem = ({ cartItem }) => {
     </div>
   );
 };
-
-
-export default CheckoutItem;
