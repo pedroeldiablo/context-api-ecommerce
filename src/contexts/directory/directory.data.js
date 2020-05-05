@@ -1,4 +1,4 @@
-const DIRECTORY_DATA = [
+export const DIRECTORY_DATA = [
     {
       title: 'hats',
       imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
@@ -32,5 +32,3 @@ const DIRECTORY_DATA = [
       linkUrl: 'shop/mens'
     }
   ];
-  
-  export default DIRECTORY_DATA;

@@ -7,7 +7,7 @@ import { CartContext } from '../../providers/cart/cart.provider';
 
 import './cart-dropdown.styles.scss';
 
-const CartDropdown = ({ history }) => {
+export const CartDropdown = withRouter(({ history }) => {
   const { cartItems, toggleHidden } = useContext(CartContext);
 
   return (
@@ -30,8 +30,4 @@ const CartDropdown = ({ history }) => {
       GO TO CHECKOUT
     </CustomButton>
   </div>
-)};
-
-
-
-export default withRouter(CartDropdown);
+)});
