@@ -29,7 +29,7 @@ export const Header = () => {
       </Link>
       {currentUser ? (
         <div className='option' onClick={() => auth.signOut()}>
-          SIGN OUT
+          {currentUser.displayName} SIGN OUT
         </div>
       ) : (
         <Link className='option' to='/signin'>
