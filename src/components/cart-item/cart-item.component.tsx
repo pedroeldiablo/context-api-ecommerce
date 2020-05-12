@@ -7,7 +7,8 @@ export interface Item {
 		imageUrl: string;
 		price: number;
 		name: string;
-		quantity: number;
+		quantity?: number;
+		id?: number;
 	};
 }
 

@@ -10,6 +10,8 @@ import './cart-dropdown.styles.scss';
 export const CartDropdown = withRouter(({ history }) => {
 	const { cartItems, toggleHidden } = useContext(CartContext);
 
+	console.log({ cartItems });
+
 	return (
 		<div className="cart-dropdown">
 			<div className="cart-items">
