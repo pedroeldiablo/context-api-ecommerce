@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
 
 import './App.css';
 
@@ -15,14 +15,16 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { CurrentUserContext } from './contexts/current-user/current-user.context';
 
 export class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       currentUser: null,
     }
 
   }
+  // unsubscribeFromAuth: null | Unsubscribe = null;
+
   unsubscribeFromAuth = null;
 
   componentDidMount() {
@@ -52,6 +54,7 @@ export class App extends React.Component {
         <CurrentUserContext.Provider value={this.state.currentUser}>
           <Header />
         </CurrentUserContext.Provider>
+        <Router>
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
@@ -68,6 +71,7 @@ export class App extends React.Component {
             }
           />
         </Switch>
+        </Router>
       </div>
     );
   }
