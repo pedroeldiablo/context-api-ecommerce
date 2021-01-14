@@ -5,11 +5,11 @@ import { CollectionsContext } from '../../contexts/collections/collections.conte
 
 import './collections-overview.styles.scss';
 
-import { Item } from '../cart-item/cart-item.component';
+// import { Item } from '../cart-item/cart-item.component';
 
-interface Collection {
-	[key: string]: Item['item'];
-}
+// interface Collection {
+// 	[key: string]: Item['item'];
+// }
 
 export const CollectionsOverview = () => {
 	const collectionsMap = useContext(CollectionsContext);

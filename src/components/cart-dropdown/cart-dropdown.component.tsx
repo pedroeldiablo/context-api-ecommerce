@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import { CustomButton } from '../custom-button/custom-button.component';
-import { CartItem } from '../cart-item/cart-item.component';
+import { CartItem, Item } from '../cart-item/cart-item.component';
 import { CartContext } from '../../providers/cart/cart.provider';
 
 import './cart-dropdown.styles.scss';
@@ -16,7 +16,7 @@ export const CartDropdown = withRouter(({ history }) => {
 		<div className="cart-dropdown">
 			<div className="cart-items">
 				{cartItems.length ? (
-					cartItems.map((cartItem) => <CartItem key={cartItem.id} item={cartItem} />)
+					cartItems.map((cartItem) => <CartItem key={(cartItem as Item["item"]).id} item={cartItem} />)
 				) : (
 					<span className="empty-message">Your cart is empty</span>
 				)}
