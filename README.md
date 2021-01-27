@@ -1,5 +1,7 @@
 # react-context-ecommerce
 
+[react-ecommerce-store](https://react-ecommerce-store.herokuapp.com/)
+
 Built as an extension of an existing ecommerce project but utilising the context api as an alternative approach to Redux for shared state management.
 
 ## Set your firebase config
