@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test suits for MyComponentWithLink should match with snapshot 1`] = `
+<div>
+  <div
+    className="header"
+  >
+    <a
+      className="logo-container"
+      href="/"
+      onClick={[Function]}
+    >
+      <svg
+        className="logo"
+      >
+        crown.svg
+      </svg>
+    </a>
+    <div
+      className="options"
+    >
+      <a
+        className="option"
+        href="/shop"
+        onClick={[Function]}
+      >
+        SHOP
+      </a>
+      <a
+        className="option"
+        href="/shop"
+        onClick={[Function]}
+      >
+        CONTACT
+      </a>
+      <a
+        className="option"
+        href="/signin"
+        onClick={[Function]}
+      >
+        SIGN IN
+      </a>
+      <div
+        className="cart-icon"
+        onClick={[Function]}
+      >
+        <svg
+          className="shopping-icon"
+        >
+          shopping-bag.svg
+        </svg>
+        <span
+          className="item-count"
+        >
+          0
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="homepage"
+  >
+    <div
+      className="directory-menu"
+    >
+      <div
+        className="undefined menu-item"
+        onClick={[Function]}
+      >
+        <div
+          className="background-image"
+          style={
+            Object {
+              "backgroundImage": "url(https://i.ibb.co/cvpntL1/hats.png)",
+            }
+          }
+        />
+        <div
+          className="content"
+        >
+          <h1
+            className="title"
+          >
+            HATS
+          </h1>
+          <span
+            className="subtitle"
+          >
+            SHOP NOW
+          </span>
+        </div>
+      </div>
+      <div
+        className="undefined menu-item"
+        onClick={[Function]}
+      >
+        <div
+          className="background-image"
+          style={
+            Object {
+              "backgroundImage": "url(https://i.ibb.co/px2tCc3/jackets.png)",
+            }
+          }
+        />
+        <div
+          className="content"
+        >
+          <h1
+            className="title"
+          >
+            JACKETS
+          </h1>
+          <span
+            className="subtitle"
+          >
+            SHOP NOW
+          </span>
+        </div>
+      </div>
+      <div
+        className="undefined menu-item"
+        onClick={[Function]}
+      >
+        <div
+          className="background-image"
+          style={
+            Object {
+              "backgroundImage": "url(https://i.ibb.co/0jqHpnp/sneakers.png)",
+            }
+          }
+        />
+        <div
+          className="content"
+        >
+          <h1
+            className="title"
+          >
+            SNEAKERS
+          </h1>
+          <span
+            className="subtitle"
+          >
+            SHOP NOW
+          </span>
+        </div>
+      </div>
+      <div
+        className="large menu-item"
+        onClick={[Function]}
+      >
+        <div
+          className="background-image"
+          style={
+            Object {
+              "backgroundImage": "url(https://i.ibb.co/GCCdy8t/womens.png)",
+            }
+          }
+        />
+        <div
+          className="content"
+        >
+          <h1
+            className="title"
+          >
+            WOMENS
+          </h1>
+          <span
+            className="subtitle"
+          >
+            SHOP NOW
+          </span>
+        </div>
+      </div>
+      <div
+        className="large menu-item"
+        onClick={[Function]}
+      >
+        <div
+          className="background-image"
+          style={
+            Object {
+              "backgroundImage": "url(https://i.ibb.co/R70vBrQ/men.png)",
+            }
+          }
+        />
+        <div
+          className="content"
+        >
+          <h1
+            className="title"
+          >
+            MENS
+          </h1>
+          <span
+            className="subtitle"
+          >
+            SHOP NOW
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
