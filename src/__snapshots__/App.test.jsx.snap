@@ -28,7 +28,7 @@ exports[`Test suits for MyComponentWithLink should match with snapshot 1`] = `
       </a>
       <a
         className="option"
-        href="/shop"
+        href="/contact"
         onClick={[Function]}
       >
         CONTACT
