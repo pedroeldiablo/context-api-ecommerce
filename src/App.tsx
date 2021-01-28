@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './App.css';
 
@@ -67,7 +67,6 @@ export class App extends React.Component<AppProps, AppState> {
         <CurrentUserContext.Provider value={this.state.currentUser}>
           <Header></Header>
         </CurrentUserContext.Provider>
-        <Router>
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
@@ -85,7 +84,6 @@ export class App extends React.Component<AppProps, AppState> {
           />
           <Route component={PageNotFoundPage} />
         </Switch>
-        </Router>
       </div>
     );
   }
