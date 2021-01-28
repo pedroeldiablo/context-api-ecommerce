@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test suits for Header should match with snapshot 1`] = `
+<div
+  className="header"
+>
+  <a
+    className="logo-container"
+    href="/"
+    onClick={[Function]}
+  >
+    <svg
+      className="logo"
+    >
+      crown.svg
+    </svg>
+  </a>
+  <div
+    className="options"
+  >
+    <a
+      className="option"
+      href="/shop"
+      onClick={[Function]}
+    >
+      SHOP
+    </a>
+    <a
+      className="option"
+      href="/contact"
+      onClick={[Function]}
+    >
+      CONTACT
+    </a>
+    <a
+      className="option"
+      href="/signin"
+      onClick={[Function]}
+    >
+      SIGN IN
+    </a>
+    <div
+      className="cart-icon"
+      onClick={[Function]}
+    >
+      <svg
+        className="shopping-icon"
+      >
+        shopping-bag.svg
+      </svg>
+      <span
+        className="item-count"
+      >
+        0
+      </span>
+    </div>
+  </div>
+</div>
+`;

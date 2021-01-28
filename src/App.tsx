@@ -7,15 +7,25 @@ import { HomePage } from './pages/homepage/homepage.component';
 import { ShopPage } from './pages/shop/shop.component';
 import { SignInAndSignUpPage} from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import { CheckoutPage } from './pages/checkout/checkout.component';
+import { PageNotFoundPage } from './pages/404/404.component'
 
 import { Header } from './components/header/header.component';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { Unsubscribe } from 'redux';
+import {CurrentUserContext} from './contexts/current-user/current-user.context';
 
-import { CurrentUserContext } from './contexts/current-user/current-user.context';
+interface AppProps {
+  props: any
+}
 
-export class App extends React.Component {
-  constructor(props) {
+interface AppState {
+  currentUser: null | any
+  
+}
+
+export class App extends React.Component<AppProps, AppState> {
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -25,14 +35,14 @@ export class App extends React.Component {
   }
   // unsubscribeFromAuth: null | Unsubscribe = null;
 
-  unsubscribeFromAuth = null;
+  unsubscribeFromAuth: null | Unsubscribe  = null;
 
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapShot => {
+        userRef?.onSnapshot(snapShot => {
           this.setState({currentUser: {
             id: snapShot.id,
             ...snapShot.data()
@@ -45,14 +55,17 @@ export class App extends React.Component {
   }
 
   componentWillUnmount() {
-    this.unsubscribeFromAuth();
+    if(this.unsubscribeFromAuth){
+      this.unsubscribeFromAuth();
+    }
+   
   }
 
   render() {
     return (
       <div>
         <CurrentUserContext.Provider value={this.state.currentUser}>
-          <Header />
+          <Header></Header>
         </CurrentUserContext.Provider>
         <Router>
         <Switch>
@@ -70,6 +83,7 @@ export class App extends React.Component {
               )
             }
           />
+          <Route component={PageNotFoundPage} />
         </Switch>
         </Router>
       </div>
