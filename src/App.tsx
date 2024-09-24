@@ -1,27 +1,32 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './App.css';
 
-import { HomePage } from './pages/homepage/homepage.component';
-import { ShopPage } from './pages/shop/shop.component';
-import { SignInAndSignUpPage} from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
-import { CheckoutPage } from './pages/checkout/checkout.component';
-import { PageNotFoundPage } from './pages/404/404.component'
-
-import { Header } from './components/header/header.component';
+import Spinner from './components/spinner/spinner';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { Unsubscribe } from 'redux';
-import {CurrentUserContext} from './contexts/current-user/current-user.context';
+import { CurrentUserContext } from './contexts/current-user/current-user.context';
+
+const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
+
+const ShopPage = lazy(() => import('./pages/shop/shop.component'));
+
+const SignInAndSignUpPage = lazy(
+  () => import('./pages/sign-in-and-sign-up/sign-in-and-sign-up.component')
+);
+const CheckoutPage = lazy(() => import('./pages/checkout/checkout.component'));
+const PageNotFoundPage = lazy(() => import('./pages/404/404.component'));
+
+const Header = lazy(() => import('./components/header/header.component'));
 
 interface AppProps {
-  props: any
+  props: any;
 }
 
 interface AppState {
-  currentUser: null | any
-  
+  currentUser: null | any;
 }
 
 export class App extends React.Component<AppProps, AppState> {
@@ -30,60 +35,62 @@ export class App extends React.Component<AppProps, AppState> {
 
     this.state = {
       currentUser: null,
-    }
-
+    };
   }
   // unsubscribeFromAuth: null | Unsubscribe = null;
 
-  unsubscribeFromAuth: null | Unsubscribe  = null;
+  unsubscribeFromAuth: null | Unsubscribe = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef?.onSnapshot(snapShot => {
-          this.setState({currentUser: {
-            id: snapShot.id,
-            ...snapShot.data()
-          }});
+        userRef?.onSnapshot((snapShot) => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data(),
+            },
+          });
         });
       }
 
-      this.setState({ currentUser: userAuth});
+      this.setState({ currentUser: userAuth });
     });
   }
 
   componentWillUnmount() {
-    if(this.unsubscribeFromAuth){
+    if (this.unsubscribeFromAuth) {
       this.unsubscribeFromAuth();
     }
-   
   }
 
   render() {
     return (
       <div>
-        <CurrentUserContext.Provider value={this.state.currentUser}>
-          <Header></Header>
-        </CurrentUserContext.Provider>
-        <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/shop' component={ShopPage} />
-          <Route exact path='/checkout' component={CheckoutPage} />
-          <Route
-            exact
-            path='/signin'
-            render={() =>
-              this.state.currentUser ? (
-                <Redirect to='/' />
-              ) : (
-                <SignInAndSignUpPage />
-              )
-            }
-          />
-          <Route component={PageNotFoundPage} />
-        </Switch>
+        <Suspense fallback={<Spinner />}>
+          <CurrentUserContext.Provider value={this.state.currentUser}>
+            <Header></Header>
+          </CurrentUserContext.Provider>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
+            <Route
+              exact
+              path="/signin"
+              render={() =>
+                this.state.currentUser ? (
+                  <Redirect to="/" />
+                ) : (
+                  <SignInAndSignUpPage />
+                )
+              }
+            />
+            <Route component={PageNotFoundPage} />
+          </Switch>
+        </Suspense>
       </div>
     );
   }
